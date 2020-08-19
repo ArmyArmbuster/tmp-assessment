@@ -1,0 +1,40 @@
+# graphql operations
+
+"""
+graphql operations, Query
+"""
+type Query {
+
+    "email wishes for today"
+    statsWishes: [Int!]!
+}
+
+"""
+graphql operations, Mutation
+"""
+type Mutation {
+
+    "email wishes for unwished employees"
+    emailWishes (message: String!): MutationResponse!
+}
+
+# graphql types
+
+"""
+MutationResponse interface
+"""
+interface MutationResponse {
+
+    # MutationResponse
+
+    "mutation message"
+    message: String!
+
+    "mutation success"
+    success: Boolean!
+
+    "mutation success code"
+    code: String!
+
+    # ...
+}
