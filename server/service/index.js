@@ -1,6 +1,7 @@
 /// region imports
 const { ApolloServer } = require('apollo-server-express');
 const schema = require('./schema');
+const ACMEDataSource = require('./schema/sources/ACMEDataSource');
 /// endregion
 
 /**
@@ -17,7 +18,14 @@ const context = async ({ req }) => {
 };
 
 /**
+ * graphql schema data sources
+ */
+const dataSources = () => ({
+  ACMEDataSource: new ACMEDataSource(),
+});
+
+/**
  * exports service configuration
  * @module service configuration
  */
-module.exports = new ApolloServer({ ...schema, context });
+module.exports = new ApolloServer({ ...schema, context, dataSources });
