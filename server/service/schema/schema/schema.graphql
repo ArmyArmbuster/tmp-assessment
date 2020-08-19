@@ -15,7 +15,7 @@ graphql operations, Mutation
 type Mutation {
 
     "email wishes for unwished employees"
-    emailWishes (message: String!): MutationResponse!
+    emailWishes (message: String!): EmailWishesMutationResponse!
 }
 
 # graphql types
@@ -24,6 +24,25 @@ type Mutation {
 MutationResponse interface
 """
 interface MutationResponse {
+
+    # MutationResponse
+
+    "mutation message"
+    message: String!
+
+    "mutation success"
+    success: Boolean!
+
+    "mutation success code"
+    code: String!
+
+    # ...
+}
+
+"""
+MutationResponse interface
+"""
+type EmailWishesMutationResponse implements MutationResponse {
 
     # MutationResponse
 
