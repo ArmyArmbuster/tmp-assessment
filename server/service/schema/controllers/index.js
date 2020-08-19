@@ -1,3 +1,8 @@
+/// region imports
+const statsWishes = require('./statsWishes');
+const emailWishes = require('./emailWishes');
+/// endregion
+
 /**
  * exports graphql schema resolvers
  * @module graphql schema resolvers
@@ -5,18 +10,10 @@
 module.exports = {
 
   Query: {
-    statsWishes () {
-      return [];
-    },
+    statsWishes,
   },
   Mutation: {
-    emailWishes () {
-      return {
-        message: 'OK',
-        success: true,
-        code: 'OK',
-      };
-    },
+    emailWishes,
   },
   MutationResponse: {
     __resolveType () {
