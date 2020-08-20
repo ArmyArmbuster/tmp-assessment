@@ -1,6 +1,7 @@
 /// region imports
 const statsWishes = require('./statsWishes');
 const emailWishes = require('./emailWishes');
+const clearWishes = require('./clearWishes');
 /// endregion
 
 /**
@@ -14,6 +15,7 @@ module.exports = {
   },
   Mutation: {
     emailWishes,
+    clearWishes,
   },
   MutationResponse: {
     __resolveType () {
