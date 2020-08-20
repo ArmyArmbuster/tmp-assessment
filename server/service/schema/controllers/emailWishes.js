@@ -4,12 +4,16 @@ const getEmployeeAnniversaries = require('../util/getEmployeeAnniversaries');
 const getEmployeeCollection = require('../util/getEmployeeCollection');
 const getEmployeeExclusions = require('../util/getEmployeeExclusions');
 const generateWish = require('../util/generateWish');
+const { sendEmail } = require('../util/email');
 /// endregion
 
-const transmitWish = (wish) => {
+const transmitWish = async (wish) => {
 
   /// SEND EMAIL WITH NODE MAILER
-  console.log(wish);
+  await sendEmail({
+    subject: 'Warm Wishes',
+    message: wish,
+  });
 
   return {
     message: wish,
@@ -18,10 +22,13 @@ const transmitWish = (wish) => {
   };
 };
 
-const transmitNone = (none = 'No wishes today!') => {
+const transmitNone = async (none = 'No wishes today!') => {
 
   /// SEND EMAIL WITH NODE MAILER
-  console.log(none);
+  await sendEmail({
+    subject: 'Cold Wishes',
+    message: none,
+  });
 
   return {
     message: none,
@@ -59,8 +66,8 @@ module.exports = async function (_source, _args, { dataSources }) {
       return { _id: employee.id };
     }));
 
-    return transmitWish(wish);
+    return await transmitWish(wish);
   } else {
-    return transmitNone();
+    return await transmitNone();
   }
 };
