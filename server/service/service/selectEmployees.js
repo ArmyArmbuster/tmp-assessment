@@ -9,6 +9,6 @@ const handle = require('./handle');
 module.exports = async function () {
 
   return await handle(async function (collection) {
-    return await collection.find();
+    return (await collection.find()).map(employee => employee._id);
   });
 };
