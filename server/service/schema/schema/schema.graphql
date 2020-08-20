@@ -15,7 +15,30 @@ graphql operations, Mutation
 type Mutation {
 
     "email wishes for unwished employees"
-    emailWishes (message: String!): EmailWishesMutationResponse!
+    emailWishes (
+
+        """
+        Customized message
+        e.g. "Happy Birthday"
+        defaults to environment variable
+        """
+        message: String,
+
+        """
+        Customized field
+        e.g. "dateOfBirth"
+        defaults to "dateOfBirth"
+        """
+        field: String,
+
+        """
+        Simulation test date
+        e.g. "2020-09-01T00:00:00"
+        defaults to current date
+        """
+        date: String
+
+    ): EmailWishesMutationResponse!
 }
 
 # graphql types
