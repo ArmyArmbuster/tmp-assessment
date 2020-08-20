@@ -22,7 +22,7 @@ module.exports = async function (fn) {
     user = await app.logIn(Realm.Credentials.anonymous());
 
     /// required collection
-    const collection =  user.remoteMongoClient(process.env.MONGO_SERVICE).db(process.env.MONGO_DATABASE).collection(process.env.MONGO_COLLECTION);
+    const collection = user.remoteMongoClient(process.env.MONGO_SERVICE).db(process.env.MONGO_DATABASE).collection(process.env.MONGO_COLLECTION);
 
     return await fn(collection);
 
