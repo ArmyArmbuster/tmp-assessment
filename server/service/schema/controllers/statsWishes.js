@@ -1,9 +1,12 @@
+/// region imports
+const selectEmployees = require('../../service/selectEmployees');
+/// endregion
+
 /**
  * exports graphql schema resolver
  * @module graphql schema resolver
  */
-module.exports = function () {
-  return [
-    /// ...
-  ];
+module.exports = async function () {
+
+  return selectEmployees();
 };
