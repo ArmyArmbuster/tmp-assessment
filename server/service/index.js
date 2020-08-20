@@ -2,7 +2,6 @@
 const { ApolloServer } = require('apollo-server-express');
 const schema = require('./schema');
 const ACMEDataSource = require('./schema/sources/ACMEDataSource');
-const FAKEDataSource = require('./schema/sources/FAKEDataSource');
 /// endregion
 
 /**
@@ -23,7 +22,6 @@ const context = async ({ req }) => {
  */
 const dataSources = () => ({
   ACMEDataSource: new ACMEDataSource(),
-  FAKEDataSource: new FAKEDataSource(),
 });
 
 /**
