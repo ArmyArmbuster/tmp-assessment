@@ -13,7 +13,7 @@ module.exports = class extends RESTDataSource {
     this.baseURL = process.env.ACME;
   }
 
-  async getBirthdayWishExclusions () {
+  async getExclusion () {
     return this.get(process.env.ACME_BIRTHDAY_WISH_EXCLUSIONS);
   }
 
