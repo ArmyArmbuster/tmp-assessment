@@ -94,3 +94,6 @@ config
 
 # config
 *.env
+
+# config realm
+realm-object-server
