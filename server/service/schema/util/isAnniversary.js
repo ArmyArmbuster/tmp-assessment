@@ -9,7 +9,7 @@ const checkEqualMonth = (date, now = new Date()) => {
 
 const checkEqualDay = (date, now = new Date()) => {
   /// simple equality and leap year check
-  return (date.getDay() === now.getDay()) || (!isLeapYear(now.getFullYear()) && date.getDay() === 29 && now.getDay() === 28);
+  return (date.getDate() === now.getDate()) || (!isLeapYear(now.getFullYear()) && date.getDate() === 29 && now.getDate() === 28);
 };
 
 /**
