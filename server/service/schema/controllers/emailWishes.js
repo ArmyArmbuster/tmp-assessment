@@ -10,10 +10,16 @@ const { sendEmail } = require('../util/email');
 const transmitWish = async (wish) => {
 
   /// SEND EMAIL WITH NODE MAILER
-  await sendEmail({
-    subject: 'Warm Wishes',
-    message: wish,
-  });
+  try {
+
+    await sendEmail({
+      subject: 'Warm Wishes',
+      message: wish,
+    });
+
+  } catch (error) {
+    console.error(error);
+  }
 
   return {
     message: wish,
@@ -25,10 +31,16 @@ const transmitWish = async (wish) => {
 const transmitNone = async (none = 'No wishes today!') => {
 
   /// SEND EMAIL WITH NODE MAILER
-  await sendEmail({
-    subject: 'Cold Wishes',
-    message: none,
-  });
+  try {
+
+    await sendEmail({
+      subject: 'Cold Wishes',
+      message: none,
+    });
+
+  } catch (error) {
+    console.error(error);
+  }
 
   return {
     message: none,
